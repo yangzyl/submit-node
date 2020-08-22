@@ -2,10 +2,10 @@
 var mysql      = require('mysql');
 //创建连接
 var connection = mysql.createConnection({
-host     : '106.12.146.146',
+host     : '118.31.6.0',
 user     : 'root',
-password : '15963383124',
-database : 'submit'
+password : 'Ruan410093793.',
+database : 'account'
 });
 //执行创建连接 
 connection.connect();

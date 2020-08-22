@@ -23,9 +23,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //配置路由，（'自定义路径'，上面设置的接口地址）
-app.use('/create', add);
-app.use('/image', image);
-app.use('/static', static);
+app.use('/api/create', add);
+app.use('/api/image', image);
+app.use('/api/static', static);
 
 // 错误处理
 app.use(function(req, res, next) {

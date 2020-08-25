@@ -4,11 +4,11 @@ var router = express.Router();
  var URL = require('url');
  var connection = require('../middleware/db')
 //SQL语句
-var  addSql = 'INSERT INTO user(id,username,cart_type,cart_code, agency_code, tel_phone, image, image_back, image_bank, image_bank_back, create_time) VALUES(?,?,?,?,?,?,?,?,?,?,?)';
+var  addSql = 'INSERT INTO user(id,username,cart_type,cart_code, agency_code, tel_phone, image, image_back, image_bank, image_bank_back, bank_count, bank_info, create_time) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)';
 router.post('/user', function(req, res, next) {
     //解析请求参数
     const body = req.body;
-      var addSqlParams = [uuid.v4(), body.username, body.cardType, body.cardnum, body.agencynum, body.phonenum, body.imageUrl, body.imageUrlBack, body.imageUrlBank, body.imageUrlBankBack, new Date()];
+      var addSqlParams = [uuid.v4(), body.username, body.cardType, body.cardnum, body.agencynum, body.phonenum, body.imageUrl, body.imageUrlBack, body.imageUrlBank, body.imageUrlBankBack, body.bankcount, body.bankinfo, new Date()];
       
       //增
     connection.query(addSql,addSqlParams,function (err, result) {

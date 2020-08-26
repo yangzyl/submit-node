@@ -25,7 +25,19 @@ function handleError (err) {
     db.connect(handleError);
     db.on('error', handleError);
   }
+
+var cnt=0;
+var time = 10 * 60 * 1000;
+var  getUserSql = 'SELECT * from user';
+var conn=function(){
+    db.query(getUserSql, function (error, results, fields) {
+      if (error) throw error;
+    });
+    cnt++;
+    console.log("Mysql重连接成功! 次数:"+cnt);
+}
+setInterval(conn, time);
   
-  var db;
-  connect();
-  module.exports = db;
+var db;
+connect();
+module.exports = db;
